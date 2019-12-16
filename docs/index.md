@@ -5,10 +5,10 @@ python and it's Pillow library. It is still in development and features are
 still being added. The application takes an image as input and outputs the image
 where in certain regions the pixels are sorted after brightness.
 
-**Features**
+## Features
 - Threshold for which regions get sorted
 - Switch between sorting the highlights and the shadows
 
-**Planned Features**
+## Planned Features
 - Being able to make animations
 - Import custom masks
