@@ -17,11 +17,12 @@ class GUI:
     hlfactor = 1
     def __init__(self, master):
         self.master = master
-        master.title("PixelSorting")
+        master.title("Lusorio's Pixel Sorter")
+        master.iconbitmap(default='LPSLogo.ico')
 
         ### HEADER ###
 
-        self.label = Label(master, text="Pixel Sorting Algorithm")
+        self.label = Label(master, text="Lusorio's Pixel Sorter")
         self.label.config(font=('Courier',29))
         self.label.pack(padx=20,pady=20)
 

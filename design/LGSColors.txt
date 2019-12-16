@@ -1,0 +1,2 @@
+Main: #ff003a
+Shadow: #190006
