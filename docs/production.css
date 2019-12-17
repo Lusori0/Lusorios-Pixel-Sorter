@@ -17,14 +17,14 @@ body{
     background-size: cover;
 }
 .header{
-    font-family: coolvetica;
+    font-family: coolvetica, 'Open Sans', sans-serif;
     font-weight: bolder;
     font-size: 230px;
     color: #ffffff;
     line-height: 0.8;
 }
 .header-small{
-    font-family: coolvetica;
+    font-family: coolvetica, 'Open Sans', sans-serif;
     font-weight: bolder;
     font-size: 80px;
     color: #ffffff;
@@ -38,7 +38,7 @@ body{
     */
 }
 .header-tiny{
-    font-family: coolvetica;
+    font-family: coolvetica, 'Open Sans', sans-serif;
     font-weight: bolder;
     font-size: 60px;
     color: #ffffff;
@@ -51,7 +51,7 @@ body{
     margin-bottom: 0px;
 }
 .parag{
-    font-family: coolvetica;
+    font-family: coolvetica, 'Open Sans', sans-serif;
     font-size: 40px;
     color: #ffffff;
     position: relative;
