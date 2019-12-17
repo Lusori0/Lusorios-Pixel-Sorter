@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'coolveticaregular';
+    src: url('coolvetica_rg-webfont.woff2') format('woff2'),
+         url('coolvetica_rg-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
 body{
     height: 100%;
     margin: 0;
@@ -17,7 +25,7 @@ body{
     background-size: cover;
 }
 .header{
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'coolveticaregular', sans-serif;
     font-weight: bolder;
     font-size: 230px;
     color: #ffffff;
@@ -27,7 +35,7 @@ body{
     pointer-events: none;
 }
 .header-small{
-    font-family: 'Gothic A1', sans-serif;
+    font-family: 'coolveticaregular', sans-serif;
     font-weight: bolder;
     font-size: 80px;
     color: #ffffff;
@@ -41,7 +49,7 @@ body{
     */
 }
 .header-tiny{
-    font-family: 'Gothic A1', sans-serif;
+    font-family: 'coolveticaregular', sans-serif;
     font-weight: bolder;
     font-size: 60px;
     color: #ffffff;
@@ -54,7 +62,7 @@ body{
     margin-bottom: 0px;
 }
 .parag{
-    font-family: 'Gothic A1', sans-serif;
+    font-family: 'coolveticaregular', sans-serif;
     font-size: 40px;
     color: #ffffff;
     position: relative;
@@ -82,7 +90,7 @@ body{
 }
 .button {
     margin: 5px;
-    font-family: 'Gothic A1', sans-serif;
+    font-family: 'coolveticaregular', sans-serif;
     font-weight: bolder;
     font-size: 40px;
     width: 275px;
