@@ -5,19 +5,16 @@ body{
 }
 
 .bg-black{
-    background-color: #000000;
-    width: 100%;
-    height: 100%;
-   
+    background-color: #000000a0;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 .bg{
-    //background-image: url("https://66.media.tumblr.com/96a6f48f37016c1671041b36f3365840/tumblr_pbiaexHxd61qeyvpto1_500.gifv");
     background-image: url("giphy.gif");
     height: 100%;
-    background-position: center 10%;
+    background-position: center 20%;
     background-repeat: no-repeat;
-    background-size: 80%;
-    z-index: -1;
+    background-size: cover;
 }
 .header{
     font-family: coolvetica;
@@ -25,6 +22,45 @@ body{
     font-size: 230px;
     color: #ffffff;
     line-height: 0.8;
+}
+.header-small{
+    font-family: coolvetica;
+    font-weight: bolder;
+    font-size: 80px;
+    color: #ffffff;
+    line-height: 0.8;
+    text-align: center;
+    text-decoration: none;
+    /*
+    position: absolute;
+    top: 0%;
+    left: 30%;*/
+    */
+}
+.header-tiny{
+    font-family: coolvetica;
+    font-weight: bolder;
+    font-size: 60px;
+    color: #ffffff;
+    line-height: 0.8;
+    text-align: justify;
+    padding: 20px;
+    margin-left: 350px;
+    margin-right: 350px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.parag{
+    font-family: coolvetica;
+    font-size: 40px;
+    color: #ffffff;
+    position: relative;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: justify;
+    margin-left: 350px;
+    margin-right: 350px;
+    margin-top: 0px;
 }
 .centered{
     margin: 0px;
