@@ -1,0 +1,21 @@
+{
+  "name": "pixelsorter",
+  "version": "1.0.0",
+  "description": "A tool to apply the Pixel Sorting effect to images",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "build": "electron-packager . LPS"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^7.1.9",
+    "image-output": "^2.4.1",
+    "image-pixels": "^2.2.2"
+  },
+  "devDependencies": {
+    "electron-packager": "^14.2.0"
+  }
+}
