@@ -1,0 +1,111 @@
+@font-face {
+    font-family: 'coolveticaregular';
+    src: url('coolvetica_rg-webfont.woff2') format('woff2'),
+         url('coolvetica_rg-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+body{
+    height: 100%;
+    margin: 0;
+    background-color: #000000;
+}
+.bg{
+    background-image: url("giphy.gif");
+    height: 100%;
+    background-position: center 20%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.header{
+    font-family: 'coolveticaregular', sans-serif;
+    font-weight: bolder;
+    font-size: 230px;
+    color: #ffffff;
+    line-height: 0.8;
+}
+.no-click{
+    pointer-events: none;
+}
+.header-small{
+    font-family: 'coolveticaregular', sans-serif;
+    font-weight: bolder;
+    font-size: 80px;
+    color: #ffffff;
+    line-height: 0.8;
+    text-align: center;
+    text-decoration: none;
+    /*
+    position: absolute;
+    top: 0%;
+    left: 30%;*/
+    */
+}
+.header-tiny{
+    font-family: 'coolveticaregular', sans-serif;
+    font-weight: bolder;
+    font-size: 60px;
+    color: #ffffff;
+    line-height: 0.8;
+    text-align: justify;
+    padding: 20px;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.parag{
+    font-family: 'coolveticaregular', sans-serif;
+    font-size: 40px;
+    color: #ffffff;
+    position: relative;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: justify;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 0px;
+}
+.centered{
+    position: absolute;
+    //top: 20%;
+    //left: 25%;
+    margin-left: 25%;
+    margin-top: 10%;
+}
+
+.right-center{
+    position: absolute;
+    //top: 30%;
+    //left: 55%;
+    margin-left: 50%;
+    margin-top: 15%;
+}
+.button {
+    margin: 5px;
+    font-family: 'coolveticaregular', sans-serif;
+    font-weight: bolder;
+    font-size: 40px;
+    width: 275px;
+    height: 60px;
+    background-color: #00000000;
+    color: #ffffff;
+    border: 5px solid #ffffff; /* Green */
+
+}
+
+.button:hover {
+    background-color: #ffffff;
+    color: #000000;
+
+}
+.button:active{
+    background-color: #000000;
+    border: #000000;
+    color: #ffffff;
+    outline: 0;
+}
+.button:focus{
+    outline: 0;
+}
