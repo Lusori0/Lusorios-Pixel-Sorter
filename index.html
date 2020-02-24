@@ -1,43 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Lusorio's Pixel Sorter</title>
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+	<head>
+		<meta charset="UTF-8">
+		<title>Lusorio's Pixel Sorter</title>
+		<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
 
-    <link rel="stylesheet" href="stylesheet.css">
-  </head>
-  <body>
+		<link rel="stylesheet" href="stylesheet.css">
+	</head>
+	<body>
 
-    <div class="header">
-      <p class="headerText">LPS</p>
-      <div class="menuButtons">
-        <input class="menuButton"type="button" value="-" id="minimize">
-        <input class="menuButton"type="button" value="X" id="close">
-      </div>
-    </div>
-    <div class="wrapper">
-      <div class="file-wrapper">
-        <input class="button" type="button" id="fileInputButton" value="File">
-        <p id="inputFilePath">-</p><br />
-      </div>
-      <div class="hl-wrapper">
-        <input class="button" type="button" value="Highlights" id="highlightButton"><br />
-      </div>
-      <div class = "threshold-wrapper">
-         <p id="thresholdValue">50</p>
-         <input type="range" min="0" max="100" value="50" id="thresholdSlider">
-      </div>
-      <div class="noise-wrapper">
-        <label class="noiseText"><p id="noiseMaskText">Mask Noise</p>
-          <input type="checkbox" id="noiseBox" checked><span class="btn"></span>
-        </label>
-      </div>
-      <div class="start-wrapper">
-        <input class="button" type="button" id="startButton" value="Export">
-      </div>
-    </div>
-  </body>
-  <script src="renderer.js"></script>
+		<div class="header">
+			<p class="headerText">LPS</p>
+			<div class="menuButtons">
+				<input class="menuButton"type="button" value="-" id="minimize">
+				<input class="menuButton"type="button" value="X" id="close">
+			</div>
+		</div>
+		<div class="wrapper">
+			<div class="file-wrapper">
+				<input class="button" type="button" id="fileInputButton" value="File">
+				<p id="inputFilePath">-</p><br />
+			</div>
+			<div class="hl-wrapper">
+				<input class="button" type="button" value="Highlights" id="highlightButton"><br />
+			</div>
+			<div class = "threshold-wrapper">
+				<p id="thresholdValue">50</p>
+				<input type="range" min="0" max="100" value="50" id="thresholdSlider">
+			</div>
+			<div class="noise-wrapper">
+				<label class="noiseText"><p id="noiseMaskText">Mask Noise</p>
+					<input type="checkbox" id="noiseBox" checked><span class="btn"></span>
+				</label>
+			</div>
+			<div class="start-wrapper">
+				<input class="button" type="button" id="startButton" value="Export">
+			</div>
+		</div>
+	</body>
+	<script src="renderer.js"></script>
 
 </html>
