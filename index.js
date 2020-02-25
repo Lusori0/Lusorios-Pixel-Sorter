@@ -6,6 +6,9 @@ const {ipcMain} = require('electron');
 //////////////////////////////////////
 ////*Setup of everything electron*////
 //////////////////////////////////////
+//dumb color definitions//
+var black = {"RGB":[0,0,0,1]};
+var white = {"RGB":[1,1,1,1]};
 
 console.log(app.getPath("temp"));
 
@@ -62,7 +65,13 @@ ipcMain.on('minimizeApp', (event)=>{
 //Retrieve image data
 async function startPixelSorting(inputFile, threshold, highlightFactor, noise, outputFile){
 	var {data, width, height} = await pixels(inputFile);
-	pixelSorting(data, width, height, threshold, highlightFactor, noise, outputFile);
+	var imageData = dataToImageDataObject(width, height, data);
+
+	var mask = makeMask(width, height, noise, highlightFactor, threshold, imageData);
+	saveObjectAsImage(mask, width, height, 'mask.png');
+
+	pixelSorting(width, height, outputFile, imageData, mask);
+
 };
 
 //Sort a list of Pixels and get it Back into imageData
@@ -77,74 +86,8 @@ function sorting(width, pixelList, startPixel, imageData){
 function sumOfPixel(obj){
 	return obj.RGB.reduce((acc,curr) => acc + curr, 0) - 255;
 }
-
-function pixelSorting(data, width, height, threshold, highlightFactor, noise, outputFile){
-	var imageData = [];
-	var mask = [];
-
-	for (y = 0; y < height; y++){
-		for (x = 0; x < width; x++){
-			var rPos = (width*y+x)*4;
-			var gPos = (width*y+x)*4+1;
-			var bPos = (width*y+x)*4+2;
-			var pixelBrightness = data[rPos] + data[gPos] + data[bPos];
-			imageData.push({
-				"RGB":[
-					data[rPos],
-					data[gPos],
-					data[bPos],
-					255
-				]
-			});
-			if(noise){
-				if(Math.random() < 0.998){
-					mask.push({
-						"RGB":[
-							0,
-							0,
-							0,
-							1
-						]
-					});
-				}
-				else{
-					mask.push({
-						"RGB":[
-							1,
-							1,
-							1,
-							1
-						]
-					});
-				}
-			}
-			if(pixelBrightness * highlightFactor > threshold * highlightFactor){
-				if(!noise){
-					mask.push({
-						"RGB":[
-							0,
-							0,
-							0,
-							1
-						]
-					});
-				}
-			}
-			else{
-				if(noise){mask.pop();}
-				mask.push({
-					"RGB":[
-						1,
-						1,
-						1,
-						1
-					]
-				});
-			}
-
-		}
-	}
-	saveObjectAsImage(mask, width, height, 'mask.png');
+//Algorithm to make arrays of pixels to be sorted
+function pixelSorting(width, height, outputFile, imageData, mask){
 	var pixelList = [];
 	var startPixel = [0,0];
 	for (x = 0; x < width; x++){
@@ -179,7 +122,7 @@ function pixelSorting(data, width, height, threshold, highlightFactor, noise, ou
 	}
 	saveObjectAsImage(imageData, width, height, outputFile);
 }
-
+//save a image data object as an image
 function saveObjectAsImage(input, width, height, name){
 	var outputData = [];
 	for(i = 0; i < input.length;i++){
@@ -193,4 +136,49 @@ function saveObjectAsImage(input, width, height, name){
 		width: width,
 		height: height
 	}, name);
+}
+//convert the image array data to a image data object
+function dataToImageDataObject(width, height, data){
+	var object = [];
+	for (y = 0; y < height; y++){
+		for (x = 0; x < width; x++){
+			var rPos = (width*y+x)*4;
+			var gPos = (width*y+x)*4+1;
+			var bPos = (width*y+x)*4+2;
+			var pixelBrightness = data[rPos] + data[gPos] + data[bPos];
+			object.push({
+				"RGB":[
+					data[rPos],
+					data[gPos],
+					data[bPos],
+					255
+				]
+			});
+		}
+	}
+	return object;
+}
+//function to make the mask, where to apply pixel sorting
+function makeMask(width, height, noise, highlightFactor, threshold, imageData){
+	var mask = [];
+	for (y = 0; y < height; y++){
+		for (x = 0; x < width; x++){
+
+			var [r, g, b, a] = imageData[width*y+x].RGB;
+			pixelBrightness = r+g+b;
+
+			if(pixelBrightness * highlightFactor > threshold * highlightFactor){
+				mask.push(black);
+			}
+			else{
+				mask.push(white);
+			}
+
+			if(noise && Math.random() > 0.998){
+				mask.pop();
+				mask.push(white);
+			}
+		}
+	}
+	return mask;
 }
