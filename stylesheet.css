@@ -4,6 +4,8 @@ body{
     font-family: roboto;
     font-size: 30px;
     margin: 0px;
+	overflow-x: hidden;
+	overflow-y: hidden;
 }
 p{
     display: inline-block;
@@ -56,7 +58,7 @@ input[type=button]:focus{
     background-color: #121212;
     font-family: roboto;
     font-size: 30px;
-    width: 30%;
+    width: 100%;
     border: 3px solid #eee;
     border-radius: 5px;
     color: #eee;
@@ -67,12 +69,34 @@ input[type=button]:focus{
     color:#121212;
     background-color: #eee;
 }
+.content{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: row;
+}
+.canvas{
+	margin:20px;
+	display: inline-block;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+	flex-shrink: 1;
+}
+#imageCanvas{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
 .wrapper{
+	/*display:inline-block;
+	float: left;*/
+	align-items: center;
     margin: 20px;
 }
 .file-wrapper{
-    margin-top:70px;
-    margin-bottom: 30px;
+    margin-top:10px;
+    margin-bottom: 10px;
 }
 .hl-wrapper{
     margin-top:80px;
@@ -90,24 +114,6 @@ input[type=button]:focus{
 .start-wrapper{
     margin-top:90px;
     margin-bottom: 30px;
-}
-#inputFilePath{
-    overflow:hidden;
-	white-space: nowrap;
-    border-bottom: 4px solid #1a1a1a;
-    padding-left:5px;
-    padding-right:5px;
-    margin-bottom: 0px;
-    width: 55%;
-}
-#highlightButton{
-    width:100%;
-}
-#startButton{
-    width:100%;
-}
-#fileInputButton{
-    margin-right: 20px;
 }
 #thresholdSlider{
     display: inline-block;
