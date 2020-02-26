@@ -135,7 +135,7 @@ async function startPixelSorting(inputImageData, threshold, highlightFactor, noi
 	var height = inputImageData[2];
 
 	var mask = makeMask(width, height, noise, highlightFactor, threshold, imageData);
-	saveObjectAsImage(mask, width, height, 'mask.png');
+	//saveObjectAsImage(mask, width, height, 'mask.png');
 
 	var output = pixelSorting(width, height, imageData, mask);
 	return [output,width,height];
