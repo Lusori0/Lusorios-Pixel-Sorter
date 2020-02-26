@@ -4,12 +4,14 @@ const fs = require("fs");
 const {dialog} = require("electron").remote;
 const pixels = require('image-pixels');
 const output = require('image-output');
+const resizeImageData = require('resize-image-data');
 //HTML Elements
 const highlightButton = document.getElementById('highlightButton');
 const thresholdSlider = document.getElementById('thresholdSlider');
 const c = document.getElementById("imageCanvas");
 //Edit Variables
 const origImageData = [[],0,0];
+const downscaledImageData = [[],0,0];
 var highlightFactor = 1;
 var imageArray = [[],0,0];
 
@@ -17,10 +19,10 @@ var black = {"RGB":[0,0,0,1]};
 var white = {"RGB":[1,1,1,1]};
 
 function renderImageArray(){
-	if(origImageData[1] !== 0){
+	if(downscaledImageData[1] !== 0){
 		let threshold = (thresholdSlider.value/100)*765;
 		let noise = document.getElementById('noiseBox').checked;
-		startPixelSorting(origImageData, threshold, highlightFactor, noise).then(result=>{
+		startPixelSorting(downscaledImageData, threshold, highlightFactor, noise).then(result=>{
 			imageArray = result;
 			console.log('rendered');
 			updateCanvas();
@@ -37,12 +39,11 @@ function updateCanvas(){
 		outputData.push(input[i].RGB[2]);
 		outputData.push(input[i].RGB[3]);
 	}
-	var sizer = scalePreserve(imageArray[1],imageArray[2],500,500);
 	output({
 		data: outputData,
 		width: imageArray[1],
 		height: imageArray[2]
-	},[imageArray[1]*sizer,imageArray[2]*sizer],c);	
+	},c);	
 }
 
 function scalePreserve(imgW,imgH,maxW,maxH){
@@ -57,7 +58,12 @@ document.getElementById('startButton').addEventListener('click', () => {
 				extensions:['jpg', 'png']}
 			]}).then(result=>{
                 if(!result.canceled){
-					saveObjectAsImage(imageArray[0], imageArray[1], imageArray[2], result.filePath);
+					let threshold = (thresholdSlider.value/100)*765;
+					let noise = document.getElementById('noiseBox').checked;
+					startPixelSorting(origImageData, threshold, highlightFactor, noise).then(data=>{
+						saveObjectAsImage(data[0],data[1],data[2],result.filePath)	
+					});
+
                 }
             }).catch(err =>{
                 console.log(err);
@@ -86,6 +92,16 @@ document.getElementById('fileInputButton').addEventListener('click', () =>{
 			origImageData[0] = dataToImageDataObject(width, height, data);
 			origImageData[1] = width;
 			origImageData[2] = height;
+
+
+			var sizer = scalePreserve(width, height,500,500);
+			let newWidth = Math.ceil(width*sizer);
+			let newHeight = Math.ceil(height*sizer);
+			let imageDataObject = {width: width,height:height,data:data};
+			let resizedImageData=resizeImageData(imageDataObject,newWidth,newHeight,'biliniear-interpolation');
+			downscaledImageData[0] = dataToImageDataObject(newWidth,newHeight,resizedImageData.data);
+			downscaledImageData[1] = newWidth;
+			downscaledImageData[2] = newHeight; 
 			renderImageArray();
    		}
    	}).catch(err =>{

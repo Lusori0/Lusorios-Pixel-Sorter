@@ -71,7 +71,7 @@ input[type=button]:focus{
 }
 .content{
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	align-items: center;
 	flex-direction: row;
 }
@@ -85,7 +85,7 @@ input[type=button]:focus{
 }
 #imageCanvas{
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	align-items: center;
 }
 .wrapper{
