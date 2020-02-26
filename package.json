@@ -8,7 +8,7 @@
     "start": "electron .",
     "build": "electron-packager . LPS"
   },
-  "author": "",
+  "author": "Lusorio",
   "license": "ISC",
   "dependencies": {
     "electron": "^7.1.9",
