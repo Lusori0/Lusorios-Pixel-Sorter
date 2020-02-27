@@ -49,7 +49,8 @@ body{
     color: #ffffff;
     line-height: 0.8;
     text-align: justify;
-    padding: 20px;
+    padding: 10px;
+	padding-top: 0px;
     margin-left: 15%;
     margin-right: 15%;
     margin-top: 0px;
@@ -69,18 +70,14 @@ body{
 }
 .centered{
     position: absolute;
-    //top: 20%;
-    //left: 25%;
     margin-left: 25%;
     margin-top: 10%;
 }
 
 .right-center{
     position: absolute;
-    //top: 30%;
-    //left: 55%;
     margin-left: 50%;
-    margin-top: 15%;
+    margin-top: 13%;
 }
 .button {
     margin: 5px;
