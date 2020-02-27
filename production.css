@@ -70,21 +70,21 @@ body{
 }
 .centered{
     position: absolute;
-    margin-left: 25%;
+    margin-left: 20%;
     margin-top: 10%;
 }
 
 .right-center{
     position: absolute;
-    margin-left: 50%;
-    margin-top: 13%;
+    margin-left: 48%;
+    margin-top: 17%;
 }
 .button {
     margin: 5px;
     font-family: 'coolveticaregular', sans-serif;
     font-weight: bolder;
     font-size: 40px;
-    width: 275px;
+    width: 250px;
     height: 60px;
     background-color: #00000000;
     color: #ffffff;
