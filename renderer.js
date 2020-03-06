@@ -10,10 +10,11 @@ const highlightButton = document.getElementById('highlightButton');
 const thresholdSlider = document.getElementById('thresholdSlider');
 const c = document.getElementById("imageCanvas");
 //Edit Variables
-const origImageData = [[],0,0];
-const downscaledImageData = [[],0,0];
+var origImageData = [[],0,0];
+var downscaledImageData = [[],0,0];
 var highlightFactor = 1;
 var imageArray = [[],0,0];
+var rotate = false;
 
 var black = {"RGB":[0,0,0,1]};
 var white = {"RGB":[1,1,1,1]};
@@ -46,9 +47,26 @@ function updateCanvas(){
 	},c);	
 }
 
+function rotateImage(imageObject){
+	var returnImageArray = [];
+	var width = imageObject[1];
+	var height = imageObject[2];
+	for(i = 0; i < width;i++){
+		for(j = 0; j < height; j++){
+			returnImageArray[i * height + j] = imageObject[0][j * width + i]
+		}
+	}
+	return [returnImageArray,height,width];
+}
+
 function scalePreserve(imgW,imgH,maxW,maxH){
 	return(Math.min((maxW/imgW),(maxH/imgH)));
 }
+
+document.getElementById('rotate').addEventListener('click', () =>{
+	rotate = !rotate;
+	renderImageArray();
+});
 
 document.getElementById('startButton').addEventListener('click', () => {
     if(imageArray[1] !== 0){
@@ -146,6 +164,9 @@ document.getElementById('minimize').addEventListener('click', ()=>{
 
 //Retrieve image data
 async function startPixelSorting(inputImageData, threshold, highlightFactor, noise){
+	if(rotate){
+		inputImageData = rotateImage(inputImageData);
+	}
 	var imageData = inputImageData[0].concat();
 	var width = inputImageData[1];
 	var height = inputImageData[2];
@@ -154,7 +175,12 @@ async function startPixelSorting(inputImageData, threshold, highlightFactor, noi
 	//saveObjectAsImage(mask, width, height, 'mask.png');
 
 	var output = pixelSorting(width, height, imageData, mask);
-	return [output,width,height];
+	if(rotate){
+		return rotateImage([output,width,height]);
+	}
+	else{
+		return [output,width,height];
+	}
 };
 
 //Sort a list of Pixels and get it Back into imageData

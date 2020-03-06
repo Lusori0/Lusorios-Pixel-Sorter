@@ -105,33 +105,18 @@ input[type=button]:focus{
 	/*display:inline-block;
 	float: left;*/
 	align-items: center;
-    margin: 20px;
+    margin-left: 20px;
+    margin-right:20px;
 }
-.file-wrapper{
-    margin-top:10px;
-    margin-bottom: 10px;
-}
-.hl-wrapper{
-    margin-top:80px;
-    margin-bottom: 30px;
-}
-
-.threshold-wrapper{
-    margin-top:30px;
-    margin-bottom: 30px;
-}
-.noise-wrapper{
-    margin-top:30px;
-    margin-bottom: 30px;
-}
-.start-wrapper{
-    margin-top:90px;
-    margin-bottom: 30px;
+.input{
+  display: block;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 #thresholdSlider{
     display: inline-block;
     float:right;
-    margin-top: 13px;
+    margin-top: 15px;
     width: 80%;
     -webkit-appearance: none;
     height: 4px;
