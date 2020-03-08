@@ -18,7 +18,7 @@ app.on('activate', () => {
 let win;
 function createWindow(){
 	win = new BrowserWindow({
-		width:880,
+		width:810,
 	    height:600,
 		resizable: false,
 		frame: false,

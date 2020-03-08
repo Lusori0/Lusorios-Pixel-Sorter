@@ -16,7 +16,7 @@ body{
     background-color: #121212;
     color: #eee;
     font-family: Roboto-Regular;
-    font-size: 30px;
+    font-size: 25px;
     margin: 0px;
 	overflow-x: hidden;
 	overflow-y: hidden;
@@ -33,7 +33,7 @@ input[type=button]:focus{
     -webkit-app-region: drag;
     width: 100%;
     height: 50px;
-    background-color: #1a1a1a;
+    background-color: #080808;
     margin: 0px;
     padding: 0px;
 }
@@ -54,7 +54,7 @@ input[type=button]:focus{
     padding-right:20px;
     padding-left:20px;
     padding-top:7px;
-    background-color: #1a1a1a;
+    background-color: #080808;
     color: #eee;
     font-family: Roboto-Regular;
     font-size: 35px;
@@ -70,10 +70,10 @@ input[type=button]:focus{
 .button{
     background-color: #121212;
     font-family: Roboto-Regular;
-    font-size: 30px;
+    font-size: 25px;
     width: 100%;
-    border: 3px solid #eee;
-    border-radius: 5px;
+	height: 40px;
+    border: 2px solid #eee;
     color: #eee;
     display: inline-block;
 
@@ -81,6 +81,7 @@ input[type=button]:focus{
 .button:hover{
     color:#121212;
     background-color: #eee;
+	border: 2px solid #eee;
 }
 .content{
 	display: flex;
@@ -89,35 +90,30 @@ input[type=button]:focus{
 	flex-direction: row;
 }
 .canvas{
-	margin:20px;
-	display: inline-block;
-	justify-content: center;
-	align-items: center;
-	flex-direction: row;
-	flex-shrink: 1;
-}
-#imageCanvas{
+	padding:20px;
 	display: flex;
-	justify-content: space-around;
-	align-items: center;
+	justify-content: center;
+	width: 525px;
+	max-width: 525px;
+	height: 510px;
+	max-height: 510px;
+	background: #1a1a1a;
 }
 .wrapper{
-	/*display:inline-block;
-	float: left;*/
 	align-items: center;
-    margin-left: 20px;
-    margin-right:20px;
+    padding-left: 16px;
+    padding-right:16px;
 }
 .input{
   display: block;
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin-top: 45px;
+  margin-bottom: 45px;
 }
 #thresholdSlider{
     display: inline-block;
     float:right;
     margin-top: 15px;
-    width: 80%;
+    width: 75%;
     -webkit-appearance: none;
     height: 4px;
     background-color: #1a1a1a;
@@ -135,8 +131,6 @@ input[type=range]::-webkit-slider-thumb{
 .noiseText{
     display: block;
     position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
     -webkit-user-select: none;
     user-select: none;
 }
@@ -150,10 +144,9 @@ input[type=range]::-webkit-slider-thumb{
     position: absolute;
     top: 0;
     left: 0;
-    height: 25px;
-    width: 25px;
+    height: 20px;
+    width: 20px;
     border: 4px solid #1a1a1a;
-    border-radius: 5px;
 }
 
 .btn:hover{
