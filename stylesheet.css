@@ -93,6 +93,7 @@ input[type=button]:focus{
 	padding:20px;
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	width: 525px;
 	max-width: 525px;
 	height: 510px;
