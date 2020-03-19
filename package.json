@@ -11,12 +11,15 @@
   "author": "Lusorio",
   "license": "ISC",
   "dependencies": {
-    "electron": "^7.1.9",
+    "electron": "^8.1.1",
+    "extract-zip": "^1.6.7",
     "image-output": "^2.4.2",
     "image-pixels": "^2.2.2",
+    "minimist": "^1.2.3",
+    "mkdirp": "github:isaacs/node-mkdirp#0.x",
     "resize-image-data": "^0.3.0"
   },
   "devDependencies": {
-    "electron-packager": "^14.2.0"
+    "electron-packager": "^14.2.1"
   }
 }
