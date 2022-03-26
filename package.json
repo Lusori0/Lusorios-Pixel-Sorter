@@ -15,7 +15,7 @@
     "extract-zip": "^1.6.7",
     "image-output": "^2.4.2",
     "image-pixels": "^2.2.2",
-    "minimist": "^1.2.3",
+    "minimist": "^1.2.6",
     "mkdirp": "github:isaacs/node-mkdirp#0.x",
     "resize-image-data": "^0.3.0"
   },
